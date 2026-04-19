@@ -1,0 +1,663 @@
+{
+  "info": {
+    "name": "Energia Sustentável API",
+    "description": "Collection completa da API de Energia Sustentável",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Autenticação",
+      "item": [
+        {
+          "name": "Login",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"username\": \"admin\",\n  \"password\": \"admin123\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/auth/login",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "auth", "login"]
+            }
+          }
+        },
+        {
+          "name": "Registrar Usuário",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"username\": \"novouser\",\n  \"password\": \"senha123\",\n  \"email\": \"novouser@email.com\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/auth/register",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "auth", "register"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Empresas",
+      "item": [
+        {
+          "name": "Listar Todas as Empresas",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/empresas",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "empresas"]
+            }
+          }
+        },
+        {
+          "name": "Buscar Empresa por ID",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/empresas/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "empresas", "1"]
+            }
+          }
+        },
+        {
+          "name": "Cadastrar Empresa",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nome\": \"Nova Empresa Sustentável\",\n  \"cnpj\": \"12.345.678/0001-99\",\n  \"setor\": \"Tecnologia\",\n  \"endereco\": \"Rua Exemplo, 123\",\n  \"cidade\": \"São Paulo\",\n  \"estado\": \"SP\",\n  \"contato\": \"(11) 98765-4321\",\n  \"email\": \"contato@novaempresa.com.br\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/empresas",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "empresas"]
+            }
+          }
+        },
+        {
+          "name": "Atualizar Empresa",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nome\": \"Empresa Atualizada\",\n  \"cnpj\": \"12.345.678/0001-99\",\n  \"setor\": \"Tecnologia\",\n  \"endereco\": \"Rua Nova, 456\",\n  \"cidade\": \"São Paulo\",\n  \"estado\": \"SP\",\n  \"contato\": \"(11) 91111-2222\",\n  \"email\": \"novo@email.com\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/empresas/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "empresas", "1"]
+            }
+          }
+        },
+        {
+          "name": "Excluir Empresa",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/empresas/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "empresas", "1"]
+            }
+          }
+        },
+        {
+          "name": "Buscar por CNPJ",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/empresas/cnpj/12.345.678/0001-90",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "empresas", "cnpj", "12.345.678/0001-90"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Equipamentos",
+      "item": [
+        {
+          "name": "Listar Todos os Equipamentos",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/equipamentos",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "equipamentos"]
+            }
+          }
+        },
+        {
+          "name": "Buscar Equipamento por ID",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/equipamentos/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "equipamentos", "1"]
+            }
+          }
+        },
+        {
+          "name": "Listar Equipamentos por Empresa",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/equipamentos/empresa/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "equipamentos", "empresa", "1"]
+            }
+          }
+        },
+        {
+          "name": "Cadastrar Equipamento",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"empresaId\": 1,\n  \"nome\": \"Ar Condicionado Split\",\n  \"tipo\": \"AR_CONDICIONADO\",\n  \"potenciaWatts\": 2500.00,\n  \"localizacao\": \"Sala de Reuniões\",\n  \"status\": \"ATIVO\",\n  \"dataInstalacao\": \"2025-01-15\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/equipamentos",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "equipamentos"]
+            }
+          }
+        },
+        {
+          "name": "Desligar Equipamento Ocioso",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/equipamentos/1/desligar",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "equipamentos", "1", "desligar"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Consumo de Energia",
+      "item": [
+        {
+          "name": "Listar Todos os Consumos",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/consumo-energia",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "consumo-energia"]
+            }
+          }
+        },
+        {
+          "name": "Histórico por Empresa",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/consumo-energia/empresa/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "consumo-energia", "empresa", "1"]
+            }
+          }
+        },
+        {
+          "name": "Consumo por Período",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/consumo-energia/empresa/1/periodo?dataInicio=2025-01-01T00:00:00&dataFim=2025-12-31T23:59:59",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "consumo-energia", "empresa", "1", "periodo"],
+              "query": [
+                {
+                  "key": "dataInicio",
+                  "value": "2025-01-01T00:00:00"
+                },
+                {
+                  "key": "dataFim",
+                  "value": "2025-12-31T23:59:59"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Consumo Total por Empresa",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/consumo-energia/empresa/1/total",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "consumo-energia", "empresa", "1", "total"]
+            }
+          }
+        },
+        {
+          "name": "Registrar Novo Consumo",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"empresaId\": 1,\n  \"equipamentoId\": 1,\n  \"dataLeitura\": \"2025-11-03T10:00:00\",\n  \"consumoKwh\": 500.50,\n  \"custoEstimado\": 350.35,\n  \"periodo\": \"DIARIO\",\n  \"observacoes\": \"Leitura automática do sensor\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/consumo-energia",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "consumo-energia"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Alertas",
+      "item": [
+        {
+          "name": "Listar Todos os Alertas",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/alertas",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "alertas"]
+            }
+          }
+        },
+        {
+          "name": "Alertas Ativos por Empresa",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/alertas/empresa/1/ativos",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "alertas", "empresa", "1", "ativos"]
+            }
+          }
+        },
+        {
+          "name": "Filtrar por Severidade",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/alertas/severidade/ALTA",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "alertas", "severidade", "ALTA"]
+            }
+          }
+        },
+        {
+          "name": "Criar Alerta",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"empresaId\": 1,\n  \"equipamentoId\": 1,\n  \"tipo\": \"CONSUMO_EXCESSIVO\",\n  \"severidade\": \"ALTA\",\n  \"mensagem\": \"Consumo de energia ultrapassou o limite estabelecido\",\n  \"limiteExcedido\": 1000.00,\n  \"valorAtual\": 1250.00,\n  \"status\": \"ATIVO\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/alertas",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "alertas"]
+            }
+          }
+        },
+        {
+          "name": "Resolver Alerta",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/alertas/1/resolver",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "alertas", "1", "resolver"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Metas de Eficiência",
+      "item": [
+        {
+          "name": "Listar Todas as Metas",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/metas-eficiencia",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "metas-eficiencia"]
+            }
+          }
+        },
+        {
+          "name": "Metas por Empresa",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/metas-eficiencia/empresa/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "metas-eficiencia", "empresa", "1"]
+            }
+          }
+        },
+        {
+          "name": "Metas Em Andamento",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/metas-eficiencia/empresa/1/em-andamento",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "metas-eficiencia", "empresa", "1", "em-andamento"]
+            }
+          }
+        },
+        {
+          "name": "Criar Meta",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"empresaId\": 1,\n  \"descricao\": \"Reduzir consumo de energia em 20% até o final do ano\",\n  \"tipoMeta\": \"REDUCAO_CONSUMO\",\n  \"valorAlvo\": 20.00,\n  \"valorAtual\": 5.00,\n  \"unidade\": \"PERCENTUAL\",\n  \"dataInicio\": \"2025-01-01\",\n  \"dataFim\": \"2025-12-31\",\n  \"status\": \"EM_ANDAMENTO\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/metas-eficiencia",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "metas-eficiencia"]
+            }
+          }
+        },
+        {
+          "name": "Atualizar Progresso",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/metas-eficiencia/1/progresso?valorAtual=15.5",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "metas-eficiencia", "1", "progresso"],
+              "query": [
+                {
+                  "key": "valorAtual",
+                  "value": "15.5"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Relatórios de Sustentabilidade",
+      "item": [
+        {
+          "name": "Listar Todos os Relatórios",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/relatorios-sustentabilidade",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "relatorios-sustentabilidade"]
+            }
+          }
+        },
+        {
+          "name": "Relatórios por Empresa",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/relatorios-sustentabilidade/empresa/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "relatorios-sustentabilidade", "empresa", "1"]
+            }
+          }
+        },
+        {
+          "name": "Gerar Relatório",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"empresaId\": 1,\n  \"periodo\": \"Outubro/2025\",\n  \"consumoTotalKwh\": 15000.00,\n  \"custoTotal\": 10500.00,\n  \"economiaKwh\": 2500.00,\n  \"eficienciaPercentual\": 14.28,\n  \"observacoes\": \"Houve uma redução significativa no consumo devido às melhorias implementadas nos equipamentos de ar condicionado.\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/relatorios-sustentabilidade",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "relatorios-sustentabilidade"]
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:8080",
+      "type": "string"
+    },
+    {
+      "key": "token",
+      "value": "",
+      "type": "string"
+    }
+  ]
+}
